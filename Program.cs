@@ -67,7 +67,7 @@ namespace CSScriptInstaller {
                 Error($"Registration script `{installscript}` not found!", 2);
             }
 
-            var ret = ProcessHelper.Execute(Path.Combine(installto, "install_silent.cmd"));
+            var ret = ProcessHelper.Execute(installscript, workingDirectory: installto);
 
             if (ret < 0) {
                 Directory.Delete(tempFolder, true);
